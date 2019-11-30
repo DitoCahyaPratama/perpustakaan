@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Library</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="assets/css/jquery.dataTables.min.css">
+</head>
+<body>
+    <header id="split">
+        <div class="split__left">
+            <a><h4>LOGO</h4></a>
+        </div>
+        <div class="split__center">
+            <form>
+                <div class="search">
+                    <input class="form-control" type="search" placeholder="Tulis judul disini">
+                    <input class="form-control" type="button" value="Cari">
+                </div>
+            </form>
+        </div>
+        <div class="split__right">
+            <a onclick="toggleModal('login')" href="#login">Login</a>
+        </div>
+    </header>
+    <div class="nav nav-pad">
+        <div class="nav__menu">
+            <a href="#" class="nav__menu-item">Home</a>
+            <a href="#book" class="nav__menu-item">Book</a>
+        </div>
+    </div>
+    <div class="main">
+        <div class="owl-carousel" id="carousel">
+            <div class="carousel__item"> Your Content </div>
+            <div class="carousel__item"> Your Content </div>
+            <div class="carousel__item"> Your Content </div>
+            <div class="carousel__item"> Your Content </div>
+            <div class="carousel__item"> Your Content </div>
+            <div class="carousel__item"> Your Content </div>
+            <div class="carousel__item"> Your Content </div>
+        </div>
+        <div class="nav-pad">
+            <table id="databook" class="databook">
+                <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Judul</th>
+                    <th>Letak</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>1001 Kisah</td>
+                    <td>Rak 1 no 2</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>1001 Kisah</td>
+                    <td>Rak 1 no 2</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>1001 Kisah</td>
+                    <td>Rak 1 no 2</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>1001 Kisah</td>
+                    <td>Rak 1 no 2</td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="modal__login loginform">
+        <div class="modal__login-content">
+            <span class="modal__login-close" onclick="toggleModal('login')">×</span>
+            <form>
+                <div class="modal__login-form-group">
+                    <input type="text" placeholder="Masukkan username" class="modal__login-form-control" />
+                </div>
+                <div class="modal__login-form-group">
+                    <input type="password" placeholder="Masukkan password" class="modal__login-form-control" />
+                </div>
+                <input type="submit" class="modal__login-btn btn-primary" value="Login">
+            </form>
+        </div>
+    </div>
+    <script src="assets/js/jquery-3.4.1.min.js"></script>
+    <script src="assets/js/jquery.dataTables.min.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script>
+        var modalLogin = document.querySelector(".loginform");
+        function toggleModal(key) {
+            if (key == 'login') {
+                modalLogin.classList.toggle("modal__login-show");
+            } else {
+                modalLogin.classList.toggle("modal__login-show");
+            }
+        }
+        function windowOnClick(event) {
+            toggleModal('close');
+        }
+        $(document).ready(function(){
+            $('#carousel').owlCarousel({
+                autoplay:true,
+                autoplayTimeout:3000,
+                loop:true,
+                margin:10,
+                items: 1
+            })
+            $('#book').owlCarousel({
+                margin:10,
+                items: 7
+            })
+            $('#databook').DataTable();
+
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Library</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/css/owl.theme.default.min.css">
+</head>
+<body>
+<header id="split">
+    <div class="split__left">
+
+        <a><h4>LOGO</h4></a>
+    </div>
+    <div class="split__center">
+        <form>
+            <div class="search">
+                <input class="form-control" type="search" placeholder="Tulis judul disini">
+                <input class="form-control" type="button" value="Cari">
+            </div>
+        </form>
+    </div>
+    <div class="split__right">
+        <a onclick="toggleModal('login')" href="#login">Logout</a>
+    </div>
+</header>
+<div class="container">
+    <input data-function="swipe" id="swipe" type="checkbox">
+    <label data-function="swipe" for="swipe">&#xf057;</label>
+    <label data-function="swipe" for="swipe">&#xf0c9;</label>
+<!--    <div class="row">-->
+        <div class="headings">
+        </div>
+        <div class="headings">
+        </div>
+<!--    </div>-->
+    <div class="sidebar">
+        <nav class="menu">
+            <li><a href="admin.html">Home</a></li>
+            <li><a href="book.html">Data Buku</a></li>
+            <li><a href="student.html">Data Siswa</a></li>
+        </nav>
+    </div>
+
+</div>
+<div class="modal__login loginform">
+    <div class="modal__login-content">
+        <button class="modal__login-btn btn-primary">Logout</button>
+        <button class="modal__login-btn btn-danger" onclick="toggleModal('logout')">Cancel</button>
+    </div>
+</div>
+<script src="assets/js/jquery-3.4.1.min.js"></script>
+<script src="assets/js/owl.carousel.min.js"></script>
+<script>
+    var modalLogin = document.querySelector(".loginform");
+    function toggleModal(key) {
+        if (key == 'logout') {
+            modalLogin.classList.toggle("modal__login-show");
+        } else {
+            modalLogin.classList.toggle("modal__login-show");
+        }
+    }
+    function windowOnClick(event) {
+        toggleModal('close');
+    }
+    $(document).ready(function(){
+        $('#carousel').owlCarousel({
+            autoplay:true,
+            autoplayTimeout:3000,
+            loop:true,
+            margin:10,
+            items: 1
+        })
+        $('#book').owlCarousel({
+            margin:10,
+            items: 7
+        })
+    });
+</script>
+</body>
+</html>
